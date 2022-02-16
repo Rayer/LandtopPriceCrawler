@@ -10,9 +10,6 @@ import (
 	"strings"
 )
 
-//go:embed resources/test/LandtopResponse.html
-var target string
-
 const (
 	np      = "tab-np_plan"
 	renew   = "tab-renew_plan"
@@ -108,10 +105,5 @@ func ParseLandmark() (ret []FeeEntry) {
 		_ = resp.Body.Close()
 	}
 
-	for _, r := range ret {
-		if (r.Limit == 0 || r.Limit > 40) && r.RealMonthlyCost() < 700 && r.Plan == "NP" {
-			fmt.Println(r)
-		}
-	}
 	return
 }
