@@ -27,5 +27,5 @@ func GetLimitString(limit int) string {
 }
 
 func (f FeeEntry) String() string {
-	return fmt.Sprintf("%v[%v](%v)\t合約期 %v\t每月單價 %v\t實際月繳 %v\t用量限制 %v\t%v", f.Provider, f.Plan, f.SignalType, f.ContractMonth, f.RealMonthlyCost(), f.MonthlyFee, GetLimitString(f.Limit), f.Description)
+	return fmt.Sprintf("%v[%v](%v)\t合約期 %v\t每月牌價 %v\t實際每月 %v\t用量限制 %v\t%v", f.Provider, f.Plan, f.SignalType, f.ContractMonth, f.MonthlyFee, f.RealMonthlyCost(), GetLimitString(f.Limit), f.Description)
 }

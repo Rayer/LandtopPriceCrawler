@@ -59,9 +59,9 @@ func ParseLandmark() (ret []FeeEntry) {
 						index++
 						fee, _ := strconv.Atoi(feeAndMonth[1])
 						months, _ := strconv.Atoi(feeAndMonth[2])
-						rebate, _ := strconv.Atoi(strings.Join(strings.Fields(priceDetail.Eq(index).Text()), ""))
+						rebate, _ := strconv.Atoi(removeMoneySymbol(strings.Join(strings.Fields(priceDetail.Eq(index).Text()), "")))
 						index++
-						prepaid, _ := strconv.Atoi(strings.Join(strings.Fields(priceDetail.Eq(index).Text()), ""))
+						prepaid, _ := strconv.Atoi(removeMoneySymbol(strings.Join(strings.Fields(priceDetail.Eq(index).Text()), "")))
 						index++
 
 						//處理傳輸量
@@ -106,4 +106,10 @@ func ParseLandmark() (ret []FeeEntry) {
 	}
 
 	return
+}
+
+func removeMoneySymbol(s string) string {
+	s = strings.ReplaceAll(s, "$", "")
+	s = strings.ReplaceAll(s, ",", "")
+	return s
 }
