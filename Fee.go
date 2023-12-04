@@ -15,7 +15,7 @@ type FeeEntry struct {
 	Description   string
 }
 
-func (f *FeeEntry) RealMonthlyCost() int {
+func (f FeeEntry) RealMonthlyCost() int {
 	return f.MonthlyFee - (f.Rebate / f.ContractMonth)
 }
 

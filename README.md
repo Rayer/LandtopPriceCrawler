@@ -9,12 +9,12 @@
 修改`cmd/main.go`
 
 ```go
-    ret := TelecamFeeAnalyzer.ParseLandmark()
-    for _, r := range ret {
-        if (r.Limit == 0 || r.Limit > 40) && r.Plan == "NP" {
-        fmt.Println(r)
-    }
+ret := TelecamFeeAnalyzer.ParseLandmark()
+for _, r := range ret {
+    if (r.Limit == 0 || r.Limit > 40) && r.Plan == "NP" {
+    fmt.Println(r)
 }
+
 ```
 
 以這範例來講就是擷取所有
